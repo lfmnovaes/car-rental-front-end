@@ -5,13 +5,17 @@ import {
   Route,
 } from 'react-router-dom';
 import Home from './components/Home';
+import Nav from './components/Nav';
 
 export default function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" exac element={<Home />} />
-      </Routes>
+      <div className="flex">
+        <Nav />
+        <Routes>
+          <Route path="/" exac element={<Home />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
