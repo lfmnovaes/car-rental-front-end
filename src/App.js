@@ -20,7 +20,7 @@ export default function App() {
           <Nav />
           <Routes>
             <Route path="/" exac element={<Home />} />
-            <Route path="/car" exac element={<Car />} />
+            <Route path="/car/:id" exac element={<Car />} />
           </Routes>
         </div>
       </Router>
