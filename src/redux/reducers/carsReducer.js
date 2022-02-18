@@ -1,26 +1,26 @@
+const SAVE_NEW_CAR = 'SAVE_NEW_CAR';
+
 const initialState = [
   {
     id: 1,
-    brand: 'Toyota',
+    brand: 'toyota',
     model: 'corrolla',
     year: '2015',
-    image: 'url',
+    image: 'url-toyota',
     reserved: false,
-    price: 20000,
-  },
-  {
-    id: 2,
-    brand: 'honda',
-    model: 'civic',
-    year: '2017',
-    image: 'url-civic',
-    reserved: true,
-    price: 30000,
+    price: 10000,
   },
 ];
 
+export const saveCar = (payload) => ({
+  type: SAVE_NEW_CAR,
+  car: payload,
+});
+
 function carsReducer(state = initialState, action) {
   switch (action.type) {
+    case SAVE_NEW_CAR:
+      return [...state, action.car];
     default:
       return state;
   }

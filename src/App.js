@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
 import Home from './components/Home';
 import Nav from './components/Nav';
-import Car from './components/Car';
+import CarDetails from './components/car/CarDetails';
+import CarNew from './components/car/CarNew';
 
 const store = configureStore();
 
@@ -20,7 +21,8 @@ export default function App() {
           <Nav />
           <Routes>
             <Route path="/" exac element={<Home />} />
-            <Route path="/car/:id" exac element={<Car />} />
+            <Route path="/car/:id" exac element={<CarDetails />} />
+            <Route path="/car/new" exac element={<CarNew />} />
           </Routes>
         </div>
       </Router>

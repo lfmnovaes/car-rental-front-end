@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-const car = () => {
+const CarDetails = () => {
   const { id } = useParams();
   const carArray = useSelector((state) => state.cars);
   const carSelected = carArray.filter((c) => c.id === parseInt(id, 10));
@@ -28,4 +28,4 @@ const car = () => {
   );
 };
 
-export default car;
+export default CarDetails;
