@@ -7,17 +7,17 @@ const Nav = () => (
       <aside>
         <ul>
           <li>
-            <a className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md " href="#index">
+            <a className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md " href="/">
               <span className="mx-4 font-medium">Cars</span>
             </a>
           </li>
           <li>
-            <a className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="#home">
+            <a className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="/home">
               <span className="mx-4 font-medium">Reserve</span>
             </a>
           </li>
           <li>
-            <a className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="#reservations">
+            <a className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="/reservations">
               <span className="mx-4 font-medium">My Reservations</span>
             </a>
           </li>

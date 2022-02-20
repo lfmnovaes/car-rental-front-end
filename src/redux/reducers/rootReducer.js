@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
+import reservationsReducer from './reservationsReducer';
 
 const rootReducer = combineReducers({
-  //greetings: greetingsReducer,
+  // greetings: greetingsReducer,
+  reservations: reservationsReducer,
 });
 
-export default rootReducer; 
+export default rootReducer;
