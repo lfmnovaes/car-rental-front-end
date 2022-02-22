@@ -4,12 +4,22 @@ import DatePicker from 'react-datepicker';
 const Reserve = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [selectedCar, setSelectedCar] = useState();
+  const [selectedCity, setSelectedCity] = useState();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(startDate);
+    console.log(endDate);
+    console.log(selectedCar);
+    console.log(selectedCity);
+  };
+
   return (
     <div className="flex flex-col">
       <div className="mt-10 sm:mt-0">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+            <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
@@ -35,10 +45,13 @@ const Reserve = () => {
                           name="car"
                           autoComplete="car-name"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          value={selectedCar}
+                          onChange={(event) => setSelectedCar(event.target.value)}
                         >
-                          <option>Toyota - Corolla</option>
-                          <option>Audi - A5</option>
-                          <option>Nissan - GTR</option>
+                          <option value="default" hidden>Select Car</option>
+                          <option value="Toyota - Corolla">Toyota - Corolla</option>
+                          <option value="Audi - A5">Audi - A5</option>
+                          <option value="Nissan - GTR">Nissan - GTR</option>
                         </select>
                       </label>
                     </div>
@@ -51,10 +64,13 @@ const Reserve = () => {
                           name="city"
                           autoComplete="city-name"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                          value={selectedCity}
+                          onChange={(event) => setSelectedCity(event.target.value)}
                         >
-                          <option>San Francisco</option>
-                          <option>New York</option>
-                          <option>Boston</option>
+                          <option value="default" hidden>Select City</option>
+                          <option value="San Francisco">San Francisco</option>
+                          <option value="New York">New York</option>
+                          <option value="Boston">Boston</option>
                         </select>
                       </label>
                     </div>
