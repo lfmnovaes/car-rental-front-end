@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Home from './components/Home';
+import Reserve from './components/Reserve';
 import Nav from './components/Nav';
 import Reservations from './components/Reservations';
 import configureStore from './redux/configureStore';
@@ -20,6 +21,7 @@ export default function App() {
           <Nav />
           <Routes>
             <Route path="/" exac element={<Home />} />
+            <Route path="/reserve" exac element={<Reserve />} />
             <Route path="/reservations" exac element={<Reservations />} />
           </Routes>
         </div>

@@ -4,6 +4,7 @@ import { fetchReservations } from '../redux/reducers/reservationsReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
+  //   const cars = useSelector((state) => state.cars);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchReservations());

@@ -12,7 +12,7 @@ const Nav = () => (
             </a>
           </li>
           <li>
-            <a className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="/home">
+            <a className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" href="/reserve">
               <span className="mx-4 font-medium">Reserve</span>
             </a>
           </li>
