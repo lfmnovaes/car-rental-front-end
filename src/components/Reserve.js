@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 const Reserve = () => {
+  //   const cars = useSelector((state) => state.cars);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [selectedCar, setSelectedCar] = useState();
@@ -14,6 +15,34 @@ const Reserve = () => {
     console.log(selectedCity);
   };
 
+  const car1 = {
+    id: 1,
+    brand: 'Nissan',
+    model: 'GTR',
+    year: 2012,
+    image: 'dsads',
+    reserved: true,
+    price: '100',
+  };
+  const car2 = {
+    id: 2,
+    brand: 'Audi',
+    model: 'A7',
+    year: 2018,
+    image: 'dsads',
+    reserved: true,
+    price: '100',
+  };
+  const city1 = {
+    id: 40,
+    name: 'Boston',
+  };
+  const city2 = {
+    id: 45,
+    name: 'New York',
+  };
+  const cars = [car1, car2];
+  const cities = [city1, city2];
   return (
     <div className="flex flex-col">
       <div className="mt-10 sm:mt-0">
@@ -49,9 +78,15 @@ const Reserve = () => {
                           onChange={(event) => setSelectedCar(event.target.value)}
                         >
                           <option value="default" hidden>Select Car</option>
-                          <option value="Toyota - Corolla">Toyota - Corolla</option>
-                          <option value="Audi - A5">Audi - A5</option>
-                          <option value="Nissan - GTR">Nissan - GTR</option>
+                          {cars.map((car) => (
+                            <option key={car.id} value={car.id}>
+                              {car.brand}
+                              {' '}
+                              -
+                              {' '}
+                              {car.model}
+                            </option>
+                          ))}
                         </select>
                       </label>
                     </div>
@@ -68,9 +103,11 @@ const Reserve = () => {
                           onChange={(event) => setSelectedCity(event.target.value)}
                         >
                           <option value="default" hidden>Select City</option>
-                          <option value="San Francisco">San Francisco</option>
-                          <option value="New York">New York</option>
-                          <option value="Boston">Boston</option>
+                          {cities.map((city) => (
+                            <option key={city.id} value={city.id}>
+                              {city.name}
+                            </option>
+                          ))}
                         </select>
                       </label>
                     </div>
