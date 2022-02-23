@@ -4,6 +4,7 @@ import { fetchReservations } from '../redux/reducers/reservationsReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
+  const currentReservations = reservations.filter((reservation) => (reservation.user_id === 1));
   //   const cars = useSelector((state) => state.cars);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,17 +19,8 @@ const Reservations = () => {
     reserved: true,
     price: '100',
   };
-  const RentedCar2 = {
-    id: 2,
-    brand: 'Audi',
-    model: 'A5',
-    year: 2018,
-    image: 'dsads',
-    reserved: true,
-    price: '200',
-  };
   const reservedCar = (r) => {
-    const cars = [RentedCar1, RentedCar2];
+    const cars = [RentedCar1];
     let c = {};
     cars.map((car) => {
       if (r.car_id === car.id) {
@@ -96,7 +88,7 @@ const Reservations = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {reservations.map((r) => (
+                  {currentReservations.map((r) => (
                     <tr key={r.id}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">{r.id}</div>
