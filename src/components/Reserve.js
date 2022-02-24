@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import { useDispatch } from 'react-redux';
+import { createReserve } from '../redux/reducers/reservationsReducer';
 import './Reserve.css';
 
 const Reserve = () => {
@@ -8,12 +10,26 @@ const Reserve = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [selectedCar, setSelectedCar] = useState();
   const [selectedCity, setSelectedCity] = useState();
+
+  const dispatch = useDispatch();
+
+  const submitReserveToStore = () => {
+    const sDate = new Date(startDate);
+    const eDate = new Date(endDate);
+    const reserve = {
+      id: 4,
+      date_start: sDate.toISOString().split('T')[0],
+      date_end: eDate.toISOString().split('T')[0],
+      user_id: 1,
+      car_id: selectedCar,
+      city_id: selectedCity,
+    };
+    dispatch(createReserve(reserve));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(startDate);
-    console.log(endDate);
-    console.log(selectedCar);
-    console.log(selectedCity);
+    submitReserveToStore();
   };
 
   const car1 = {

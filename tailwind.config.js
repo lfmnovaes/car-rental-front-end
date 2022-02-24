@@ -6,13 +6,13 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
-      'sm': '280px',
+      sm: '280px',
       // => @media (min-width: 576px) { ... }
 
-      'md': '960px',
+      md: '960px',
       // => @media (min-width: 960px) { ... }
 
-      'lg': '1440px',
+      lg: '1440px',
       // => @media (min-width: 1440px) { ... }
     },
   },

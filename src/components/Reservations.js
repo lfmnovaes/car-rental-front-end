@@ -34,7 +34,6 @@ const Reservations = () => {
     const endDate = new Date(r.date_end);
     const actualDate = new Date();
     if (endDate.getTime() < actualDate.getTime()) {
-      console.log(endDate);
       return false;
     }
     return true;
