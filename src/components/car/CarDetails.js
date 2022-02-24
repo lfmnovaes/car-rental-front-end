@@ -1,26 +1,46 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getCar } from '../../redux/reducers/carsReducer';
 
 const CarDetails = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const carArray = useSelector((state) => state.cars);
-  const carSelected = carArray.filter((c) => c.id === parseInt(id, 10));
+  useEffect(() => {
+    const getCarRemote = (id) => {
+      dispatch(getCar(id));
+    };
+    getCarRemote(id);
+  }, []);
+  const carSelected = useSelector((state) => state.cars);
+  const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
+  const button = (reserved === 'no') ? <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-blue-600 hover:bg-blue-500 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
   return (
-    <div className="car-container flex">
-      <div className="img-container">
-        <img src={carSelected[0].image} alt="car-img" />
+    <div className="car-container sm:flex sm:gap-5 md:justify-center">
+      <div className="img-container sm:items-center sm:w-1/2 justify-center">
+        <img src={carSelected.image} alt="car-img" className="w-100" />
       </div>
-      <div className="details">
-        <div className="title">
-          <p>{ carSelected[0].brand }</p>
-          <p>{ carSelected[0].model }</p>
+      <div className="details flex flex-col items-center sm:w-1/3 lg:mt-10">
+        <div className="title flex gap-1 uppercase font-bold">
+          <p>{ carSelected.brand }</p>
+          <p>{ carSelected.model }</p>
         </div>
-        <ul className="data">
-          <li>{ carSelected[0].year }</li>
-          <li>{ carSelected[0].price }</li>
-          <li>{ carSelected[0].reserved }</li>
-          <li><button type="button" className="reserve-button">reserve</button></li>
+        <ul className="data mt-2">
+          <li className="flex bg-gray-200">
+            <p className="capitalize px-2">year:</p>
+            <p className="capitalize px-7">{ carSelected.year }</p>
+          </li>
+          <li className="flex">
+            <p className="capitalize px-2">price:</p>
+            <p className="capitalize px-6">{ carSelected.price }</p>
+          </li>
+          <li className="flex bg-gray-200">
+            <p className="capitalize px-2">reserved:</p>
+            <p className="capitalize px-0">{ reserved }</p>
+          </li>
+          <li className="btn">
+            { button }
+          </li>
         </ul>
 
       </div>

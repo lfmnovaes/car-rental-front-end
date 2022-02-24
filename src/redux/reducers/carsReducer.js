@@ -1,26 +1,21 @@
 const SAVE_NEW_CAR = 'SAVE_NEW_CAR';
 
-const initialState = [
-  {
-    id: 1,
-    brand: 'toyota',
-    model: 'corrolla',
-    year: '2015',
-    image: 'url-toyota',
-    reserved: false,
-    price: 10000,
-  },
-];
-
 export const saveCar = (payload) => ({
   type: SAVE_NEW_CAR,
   car: payload,
 });
+export function getCar(id) {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/cars/${id}`)
+      .then((response) => response.json())
+      .then((json) => dispatch(saveCar(json)));
+  };
+}
 
-function carsReducer(state = initialState, action) {
+function carsReducer(state = [], action) {
   switch (action.type) {
     case SAVE_NEW_CAR:
-      return [...state, action.car];
+      return { ...action.car };
     default:
       return state;
   }
