@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import './Reserve.css';
 
 const Reserve = () => {
   //   const cars = useSelector((state) => state.cars);
@@ -44,11 +45,12 @@ const Reserve = () => {
   const cars = [car1, car2];
   const cities = [city1, city2];
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col form-container">
+      <h1 className="text-2xl font-bold text-blue-800 m-7 text-center">CREATE A NEW RESERVATION</h1>
       <div className="mt-10 sm:mt-0">
-        <div className="md:grid md:grid-cols-3 md:gap-6">
+        <div className="md:grid md:grid-cols-1 md:gap-6">
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form onSubmit={handleSubmit}>
+            <form className="reserveForm" onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid grid-cols-6 gap-6">

@@ -17,7 +17,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="flex">
+        <div className="flex md:flex-row sm:flex-col">
           <Nav />
           <Routes>
             <Route path="/" exac element={<Home />} />

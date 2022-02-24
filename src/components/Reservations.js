@@ -11,7 +11,7 @@ const Reservations = () => {
     dispatch(fetchReservations());
   }, []);
   const RentedCar1 = {
-    id: 1,
+    id: 2,
     brand: 'Nissan',
     model: 'GTR',
     year: 2012,
@@ -40,8 +40,8 @@ const Reservations = () => {
     return true;
   };
   return (
-    <div className="flex flex-col content-center w-4/5 ml-10">
-      <h1 className="text-center font-bold uppercase m-10">My Reservations</h1>
+    <div className="flex flex-col ml-10 mr-10 lg:w-full md:w-4/5 sm:w-4/5 sm:self-center md:self-baseline">
+      <h1 className="text-center uppercase text-2xl font-bold text-blue-800 m-7">My Reservations</h1>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
