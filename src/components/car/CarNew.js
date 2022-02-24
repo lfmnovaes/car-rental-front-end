@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { saveCar } from '../../redux/reducers/carsReducer';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const mssg = (mssg, color) => {
   const e = document.querySelector('.mssg');
@@ -11,7 +11,6 @@ const mssg = (mssg, color) => {
   }, 2000);
 };
 const CarNew = () => {
-  const dispatch = useDispatch();
   const state = useSelector((state) => state.cars);
   const sendData = () => {
     const newCar = {
@@ -27,7 +26,19 @@ const CarNew = () => {
     const elements = Object.values(newCar);
     const validate = elements.filter((e) => e === '');
     if (validate.length < 1) {
-      dispatch(saveCar(newCar));
+      axios.post('http://localhost:3001/api/cars', {
+        id: newCar.id,
+        brand: newCar.brand,
+        model: newCar.model,
+        year: newCar.year,
+        image: newCar.image,
+        reserved: newCar.reserved,
+        price: newCar.price,
+      }).then((response) => {
+        console.log(response);
+      }, (error) => {
+        console.log(error);
+      });
       mssg('Car saved', 'green');
     } else {
       mssg('Wrong data or empty input detected, try again !', 'red');
