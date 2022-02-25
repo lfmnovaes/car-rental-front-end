@@ -11,13 +11,6 @@ export function getCar(id) {
       .then((json) => dispatch(saveCar(json)));
   };
 }
-// const deleteCar = (id) => {
-//   axios.delete(`http://localhost:3001/api/cars/${id}`).then((response) => {
-//     console.log(response);
-//   }, (error) => {
-//     console.log(error);
-//   });
-// };
 
 function carsReducer(state = [], action) {
   switch (action.type) {
