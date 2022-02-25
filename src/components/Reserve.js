@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { useDispatch } from 'react-redux';
 import { createReserve } from '../redux/reducers/reservationsReducer';
@@ -12,6 +13,7 @@ const Reserve = () => {
   const [selectedCity, setSelectedCity] = useState();
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const submitReserveToStore = () => {
     const sDate = new Date(startDate);
@@ -30,6 +32,7 @@ const Reserve = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     submitReserveToStore();
+    navigate('/reservations');
   };
 
   const car1 = {
