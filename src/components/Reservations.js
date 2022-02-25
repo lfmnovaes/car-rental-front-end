@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchReservations } from '../redux/reducers/reservationsReducer';
+import { fetchReservations, removeReserveAPI } from '../redux/reducers/reservationsReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
@@ -18,6 +18,9 @@ const Reservations = () => {
     image: 'dsads',
     reserved: true,
     price: '100',
+  };
+  const deleteReserveFromStore = (reserveId) => {
+    dispatch(removeReserveAPI(reserveId));
   };
   const reservedCar = (r) => {
     const cars = [RentedCar1];
@@ -112,6 +115,11 @@ const Reservations = () => {
                         {isActive(r) === true
                           ? <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                           : <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Inactive</span>}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="/reservations" className="text-indigo-600 hover:text-indigo-900" onClick={() => deleteReserveFromStore(r.id)}>
+                          Delete
+                        </a>
                       </td>
                     </tr>
                   ))}

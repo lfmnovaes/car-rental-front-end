@@ -3,9 +3,15 @@ import { GET_RESERVATIONS } from '../actions/actionTypes';
 import { getReservations } from '../actions/actionCreator';
 
 const ADD_RESERVE = 'ADD_RESERVE';
+const REMOVE_RESERVE = 'REMOVE_RESERVE';
 
 export const addReserve = (payload) => ({
   type: ADD_RESERVE,
+  payload,
+});
+
+export const removeReserve = (payload) => ({
+  type: REMOVE_RESERVE,
   payload,
 });
 
@@ -35,6 +41,16 @@ export const createReserve = (reserve) => async (dispatch) => {
     });
 };
 
+export const removeReserveAPI = (reserveToDelete) => async (dispatch) => {
+  await axios.delete(`http://localhost:3000/api/reservations/${reserveToDelete}`)
+    .then((res) => res.status)
+    .then((data) => {
+      if (data === 201) {
+        dispatch(removeReserve(reserveToDelete));
+      }
+    });
+};
+
 const reservationsReducer = (state = [], action) => {
   switch (action.type) {
     case GET_RESERVATIONS:
@@ -51,6 +67,10 @@ const reservationsReducer = (state = [], action) => {
         }],
       ];
       return [...state, newReserve];
+    }
+    case REMOVE_RESERVE: {
+      const newState = state.filter((reserve) => reserve[0] !== action.payload);
+      return newState;
     }
     default:
       return state;
