@@ -10,7 +10,7 @@ import Nav from './components/Nav';
 export default function App() {
   return (
     <Router>
-      <div className="flex">
+      <div className="lg:flex">
         <Nav />
         <Routes>
           <Route path="/" exac element={<Home />} />
