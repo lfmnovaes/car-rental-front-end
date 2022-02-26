@@ -8,19 +8,32 @@ const mssg = (mssg, color) => {
   e.style.color = color;
   setTimeout(() => {
     e.innerText = '';
-  }, 2000);
+  }, 3000);
+};
+const clearFields = () => {
+  document.querySelector('#brand').value = '';
+  document.querySelector('#model').value = '';
+  document.querySelector('#year').value = '';
+  document.querySelector('#image').value = '';
+  document.querySelector('#price').value = '';
 };
 const CarNew = () => {
   const state = useSelector((state) => state.cars);
   const sendData = () => {
+    const brand = document.querySelector('#brand');
+    const model = document.querySelector('#model');
+    const year = document.querySelector('#year');
+    const image = document.querySelector('#image');
+    const reserved = document.querySelector('#reserved');
+    const price = document.querySelector('#price');
     const newCar = {
       id: state.length + 1,
-      brand: document.querySelector('#brand').value,
-      model: document.querySelector('#model').value,
-      year: document.querySelector('#year').value,
-      image: document.querySelector('#image').value,
-      reserved: document.querySelector('#reserved').value,
-      price: document.querySelector('#price').value,
+      brand: brand.value,
+      model: model.value,
+      year: year.value,
+      image: image.value,
+      reserved: reserved.value,
+      price: price.value,
     };
 
     const elements = Object.values(newCar);
@@ -39,6 +52,7 @@ const CarNew = () => {
       }, (error) => {
         console.log(error);
       });
+      clearFields();
       mssg('Car saved', 'green');
     } else {
       mssg('Wrong data or empty input detected, try again !', 'red');
