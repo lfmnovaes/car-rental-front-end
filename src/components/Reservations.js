@@ -42,7 +42,7 @@ const Reservations = () => {
     return true;
   };
   return (
-    <div className="flex flex-col ml-10 mr-10 lg:w-full md:w-4/5 sm:w-4/5 sm:self-center md:self-baseline">
+    <div className="flex flex-col lg:ml-10 lg:mr-10 sm:ml-4 sm:mr-4 lg:w-full md:w-4/5 sm:4/5 sm:self-center md:self-baseline">
       <h1 className="text-center uppercase text-2xl font-bold text-blue-800 m-7">My Reservations</h1>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

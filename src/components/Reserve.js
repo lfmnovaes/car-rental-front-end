@@ -66,7 +66,7 @@ const Reserve = () => {
   return (
     <div className="flex flex-col form-container">
       <h1 className="text-2xl font-bold text-blue-800 m-7 text-center">CREATE A NEW RESERVATION</h1>
-      <div className="mt-10 sm:mt-0">
+      <div className="mt-10 sm:mt-1">
         <div className="md:grid md:grid-cols-1 md:gap-6">
           <div className="mt-5 md:mt-0 md:col-span-2">
             <form className="reserveForm" onSubmit={handleSubmit}>
