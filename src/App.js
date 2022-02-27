@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Nav from './components/Nav';
 import CarDetails from './components/car/CarDetails';
 import CarNew from './components/car/CarNew';
+import Redirect from './components/Redirect';
 
 const store = configureStore();
 
@@ -23,6 +24,8 @@ export default function App() {
             <Route path="/" exac element={<Home />} />
             <Route path="/car/:id" exac element={<CarDetails />} />
             <Route path="/car/new" exac element={<CarNew />} />
+            <Route path="/redirect" exac element={<Redirect />} />
+
           </Routes>
         </div>
       </Router>

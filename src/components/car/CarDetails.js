@@ -13,13 +13,19 @@ const CarDetails = () => {
     };
     getCarRemote(id);
   }, []);
+  const showPopup = () => {
+    document.querySelector('.shadow').style.display = 'block';
+    setTimeout(() => {
+      document.querySelector('.box').style.marginTop = '70px';
+    }, 500);
+  };
 
   const carSelected = useSelector((state) => state.cars);
   const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
   const button = (reserved === 'no') ? <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-blue-600 hover:bg-blue-500 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
   return (
     <>
-      <PopUp />
+      <PopUp carId={id} />
       <div className="car-container sm:flex sm:gap-5 md:justify-center">
         <div className="img-container sm:items-center sm:w-1/2 justify-center">
           <img src={carSelected.image} alt="car-img" className="w-100" />
@@ -44,7 +50,7 @@ const CarDetails = () => {
             </li>
             <li className="btn flex flex-col">
               { button }
-              <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-red-500 hover:bg-red-400 capitalize text-white">delete</button>
+              <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-red-500 hover:bg-red-400 capitalize text-white" onClick={() => { showPopup(); }}>delete</button>
             </li>
           </ul>
         </div>
