@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
+import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
   return (
@@ -13,7 +15,10 @@ export default function App() {
       <div className="flex">
         <Nav />
         <Routes>
-          <Route path="/" exac element={<Home />} />
+          <Route exact path="/" element={<ProtectedRoute />}>
+            <Route path="/" exac element={<Home />} />
+          </Route>
+          <Route path="/login" exac element={<Login />} />
         </Routes>
       </div>
     </Router>
