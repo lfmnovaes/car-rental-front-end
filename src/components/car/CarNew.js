@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { getUser } from '../../redux/reducers/usersReducers';
 
 const mssg = (mssg, color) => {
   const e = document.querySelector('.mssg');
@@ -20,7 +19,6 @@ const clearFields = () => {
 };
 const CarNew = () => {
   const state = useSelector((state) => state.cars);
-  const dispatch = useDispatch();
   const sendData = () => {
     const brand = document.querySelector('#brand');
     const model = document.querySelector('#model');
@@ -41,7 +39,7 @@ const CarNew = () => {
     const elements = Object.values(newCar);
     const validate = elements.filter((e) => e === '');
     if (validate.length < 1) {
-      axios.post('http://localhost:3001/api/cars', {
+      axios.post('http://localhost:3000/api/cars', {
         id: newCar.id,
         brand: newCar.brand,
         model: newCar.model,
@@ -59,9 +57,6 @@ const CarNew = () => {
     } else {
       mssg('Wrong data or empty input detected, try again !', 'red');
     }
-  };
-  const saveUserInStore = (name) => {
-    dispatch(getUser(name));
   };
 
   return (
@@ -151,13 +146,6 @@ const CarNew = () => {
                     onClick={() => { sendData(); }}
                   >
                     Save
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    onClick={() => { saveUserInStore('John Doe'); }}
-                  >
-                    user
                   </button>
                 </div>
               </div>
