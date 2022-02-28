@@ -12,7 +12,7 @@ const Home = () => {
       <Carousel show={3}>
         {images.map((e) => (
           <div key={e.id}>
-            <div className="p-2">
+            <div className="flex flex-col p-2 items-center">
               <img src={e.image} alt="placeholder" />
               <span>{e.data}</span>
             </div>
