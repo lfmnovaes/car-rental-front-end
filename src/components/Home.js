@@ -1,7 +1,90 @@
 import React from 'react';
+import Carousel from './Carousel/Carousel';
 
 const Home = () => (
-  <h1 className="text-4xl font-bold underline">Home Page</h1>
+  <div
+    style={{
+      maxWidth: 1200,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginTop: 64,
+    }}
+  >
+    <Carousel show={3}>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+      <div>
+        <div style={{ padding: 8 }}>
+          <img
+            src="https://via.placeholder.com/300x300"
+            alt="placeholder"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+    </Carousel>
+  </div>
 );
 
 export default Home;
