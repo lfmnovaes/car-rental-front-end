@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { validateUser } from '../redux/reducers/userReducer';
+import { useDispatch } from 'react-redux';
+import { getUser } from '../redux/reducers/usersReducers';
 
 const Login = () => {
   const [username, setUsername] = useState('');
-
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const userVerification = () => {
-    console.log(username);
-    // const user = {
-    //   name: username,
-    // }
-    // dispatch(validateUser(user));
-    localStorage.setItem('token', 1);
-    navigate('/');
+    dispatch(getUser(username));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    userVerification();
+    setTimeout(() => {
+      const key = localStorage.getItem('token');
+      if (key !== null) {
+        navigate('/');
+      } else {
+        setUsername('');
+      }
+    }, 500);
   };
 
   return (
@@ -25,7 +31,7 @@ const Login = () => {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={userVerification}>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
