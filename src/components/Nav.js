@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 const Nav = () => {
   const location = useLocation();
-  console.log(location.pathname);
   const showPopup = () => {
     const menu = document.querySelector('.pop-up');
     const value = menu.style.display;

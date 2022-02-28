@@ -1,15 +1,31 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations, removeReserveAPI } from '../redux/reducers/reservationsReducer';
+import { getUser } from '../redux/reducers/usersReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
-  const currentReservations = reservations.filter((reservation) => (reservation.user_id === 1));
+  const users = useSelector((state) => state.users);
   //   const cars = useSelector((state) => state.cars);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchReservations());
+    const storageUserName = localStorage.getItem('userName');
+    dispatch(getUser(storageUserName));
   }, []);
+
+  let currentReservations;
+  const filterReservations = (currentUser) => reservations.filter(
+    (reservation) => (reservation.user_id === currentUser.id),
+  );
+
+  if (users.length > 0) {
+    const currentUser = users[0][0];
+    currentReservations = filterReservations(currentUser);
+  } else {
+    currentReservations = [];
+  }
   const RentedCar1 = {
     id: 2,
     brand: 'Nissan',
