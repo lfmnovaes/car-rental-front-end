@@ -13,7 +13,6 @@ import CarNew from './components/car/CarNew';
 import Redirect from './components/Redirect';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
-import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
@@ -30,7 +29,7 @@ export default function App() {
               <Route path="/car/new" exac element={<CarNew />} />
               <Route path="/redirect" exac element={<Redirect />} />
             </Route>
-              <Route path="/login" exac element={<Login />} />
+            <Route path="/login" exac element={<Login />} />
           </Routes>
         </div>
       </Router>

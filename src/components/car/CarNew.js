@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import { getUser } from '../../redux/reducers/usersReducer';
+import { getUser } from '../../redux/reducers/usersReducers';
 
 const mssg = (mssg, color) => {
   const e = document.querySelector('.mssg');
