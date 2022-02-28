@@ -64,7 +64,7 @@ const Reserve = () => {
   const cars = [car1, car2];
   const cities = [city1, city2];
   return (
-    <div className="flex flex-col form-container">
+    <div className="flex flex-col form-container lg:w-4/5">
       <h1 className="text-2xl font-bold green-text m-7 text-center uppercase">create a new reservation</h1>
       <div className="mt-10 sm:mt-1">
         <div className="md:grid md:grid-cols-1 md:gap-6">
