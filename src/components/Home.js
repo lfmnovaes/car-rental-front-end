@@ -1,90 +1,26 @@
 import React from 'react';
 import Carousel from './Carousel/Carousel';
 
-const Home = () => (
-  <div
-    style={{
-      maxWidth: 1200,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      marginTop: 64,
-    }}
-  >
-    <Carousel show={3}>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-      <div>
-        <div style={{ padding: 8 }}>
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="placeholder"
-            style={{ width: '100%' }}
-          />
-        </div>
-      </div>
-    </Carousel>
-  </div>
-);
+const Home = () => {
+  const images = new Array(5).fill(null).map((_, index) => ({
+    id: index,
+    image: 'https://via.placeholder.com/300x300',
+    data: 'some data',
+  }));
+  return (
+    <div className="flex-1">
+      <Carousel show={3}>
+        {images.map((e) => (
+          <div key={e.id}>
+            <div className="p-2">
+              <img src={e.image} alt="placeholder" />
+              <span>{e.data}</span>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
 
 export default Home;

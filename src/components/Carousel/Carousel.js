@@ -54,13 +54,17 @@ const Carousel = (props) => {
   };
 
   return (
-    <div className="carousel-container">
+    <div className="flex items-center">
+      {currentIndex > 0 ? (
+        <button type="button" onClick={prev} className="left-arrow">
+          &lt;
+        </button>
+      ) : (
+        <button type="button" onClick={prev} className="left-arrow disabled">
+          &lt;
+        </button>
+      )}
       <div className="carousel-wrapper">
-        {currentIndex > 0 && (
-          <button type="button" onClick={prev} className="left-arrow">
-            &lt;
-          </button>
-        )}
         <div
           className="carousel-content-wrapper"
           onTouchStart={handleTouchStart}
@@ -75,13 +79,16 @@ const Carousel = (props) => {
             {children}
           </div>
         </div>
-        {/* You can alwas change the content of the button to other things */}
-        {currentIndex < length - show && (
-          <button type="button" onClick={next} className="right-arrow">
-            &gt;
-          </button>
-        )}
       </div>
+      {currentIndex < length - show ? (
+        <button type="button" onClick={next} className="right-arrow">
+          &gt;
+        </button>
+      ) : (
+        <button type="button" onClick={next} className="right-arrow disabled">
+          &gt;
+        </button>
+      )}
     </div>
   );
 };
