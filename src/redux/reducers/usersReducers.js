@@ -7,9 +7,16 @@ export const saveUser = (payload) => ({
 
 export function getUser(name) {
   return (dispatch) => {
-    fetch(`http://localhost:3001/api/users/${name}`)
+    fetch(`http://localhost:3000/api/users/${name}`)
       .then((response) => response.json())
-      .then((json) => dispatch(saveUser(json)));
+      .then(
+        (json) => {
+          if (json.length > 0) {
+            dispatch(saveUser(json));
+            localStorage.setItem('token', json[0].id);
+          }
+        },
+      );
   };
 }
 

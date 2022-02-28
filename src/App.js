@@ -11,6 +11,9 @@ import Nav from './components/Nav';
 import CarDetails from './components/car/CarDetails';
 import CarNew from './components/car/CarNew';
 import Redirect from './components/Redirect';
+import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
@@ -21,11 +24,13 @@ export default function App() {
         <div className="flex">
           <Nav />
           <Routes>
-            <Route path="/" exac element={<Home />} />
-            <Route path="/car/:id" exac element={<CarDetails />} />
-            <Route path="/car/new" exac element={<CarNew />} />
-            <Route path="/redirect" exac element={<Redirect />} />
-
+            <Route exact path="/" element={<ProtectedRoute />}>
+              <Route path="/" exac element={<Home />} />
+              <Route path="/car/:id" exac element={<CarDetails />} />
+              <Route path="/car/new" exac element={<CarNew />} />
+              <Route path="/redirect" exac element={<Redirect />} />
+            </Route>
+              <Route path="/login" exac element={<Login />} />
           </Routes>
         </div>
       </Router>
