@@ -14,6 +14,7 @@ export function getUser(name) {
           if (json.length > 0) {
             dispatch(saveUser(json));
             localStorage.setItem('token', json[0].id);
+            localStorage.setItem('userName', json[0].name);
           }
         },
       );
