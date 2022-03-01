@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import carsReducer from './carsReducer';
-import usersReducer from './usersReducers';
 import reservationsReducer from './reservationsReducer';
 import usersReducer from './usersReducer';
 import citiesReducer from './citiesReducer';
