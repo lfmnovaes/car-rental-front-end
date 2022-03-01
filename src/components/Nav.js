@@ -1,8 +1,15 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const clearClick = () => {
+    localStorage.clear();
+    setTimeout(() => {
+      navigate('/login');
+    }, 1000);
+  };
   const showPopup = () => {
     const menu = document.querySelector('.pop-up');
     const value = menu.style.display;
@@ -54,6 +61,16 @@ const Nav = () => {
                 </a>
               </li>
             </ul>
+            <div className="mt-10">
+              <button
+                type="button"
+                onClick={clearClick}
+                href="/"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Log Out
+              </button>
+            </div>
           </aside>
         </div>
       </div>
