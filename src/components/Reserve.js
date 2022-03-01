@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { createReserve } from '../redux/reducers/reservationsReducer';
+import { getUser } from '../redux/reducers/usersReducer';
+import { fetchCities } from '../redux/reducers/citiesReducer';
 import './Reserve.css';
 
 const Reserve = () => {
   //   const cars = useSelector((state) => state.cars);
+  const users = useSelector((state) => state.users);
+  const cities = useSelector((state) => state.cities);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [selectedCar, setSelectedCar] = useState();
@@ -15,18 +19,28 @@ const Reserve = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const storageUserName = localStorage.getItem('userName');
+    dispatch(getUser(storageUserName));
+    dispatch(fetchCities());
+  }, []);
+
   const submitReserveToStore = () => {
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
-    const reserve = {
-      id: 4,
-      date_start: sDate.toISOString().split('T')[0],
-      date_end: eDate.toISOString().split('T')[0],
-      user_id: 1,
-      car_id: selectedCar,
-      city_id: selectedCity,
-    };
-    dispatch(createReserve(reserve));
+    if (users.length > 0) {
+      const [user] = users;
+      const currentUser = user[0];
+      const reserve = {
+        id: 1,
+        date_start: sDate.toISOString().split('T')[0],
+        date_end: eDate.toISOString().split('T')[0],
+        user_id: currentUser.id,
+        car_id: selectedCar,
+        city_id: selectedCity,
+      };
+      dispatch(createReserve(reserve));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -53,16 +67,7 @@ const Reserve = () => {
     reserved: true,
     price: '100',
   };
-  const city1 = {
-    id: 40,
-    name: 'Boston',
-  };
-  const city2 = {
-    id: 45,
-    name: 'New York',
-  };
   const cars = [car1, car2];
-  const cities = [city1, city2];
   return (
     <div className="flex flex-col form-container lg:w-4/5">
       <h1 className="text-2xl font-bold green-text m-7 text-center uppercase">create a new reservation</h1>

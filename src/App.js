@@ -19,7 +19,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="flex">
+        <div className="lg:flex">
           <Nav />
           <Routes>
             <Route exact path="/" element={<ProtectedRoute />}>

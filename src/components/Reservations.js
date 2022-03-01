@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations, removeReserveAPI } from '../redux/reducers/reservationsReducer';
 import { getUser } from '../redux/reducers/usersReducer';
+import { fetchCities } from '../redux/reducers/citiesReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
   const users = useSelector((state) => state.users);
+  const cities = useSelector((state) => state.cities);
   //   const cars = useSelector((state) => state.cars);
 
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const Reservations = () => {
     dispatch(fetchReservations());
     const storageUserName = localStorage.getItem('userName');
     dispatch(getUser(storageUserName));
+    dispatch(fetchCities());
   }, []);
 
   let currentReservations;
@@ -44,6 +47,16 @@ const Reservations = () => {
     cars.map((car) => {
       if (r.car_id === car.id) {
         c = car;
+      }
+      return 1;
+    });
+    return c;
+  };
+  const reservedCity = (r) => {
+    let c = {};
+    cities.map((city) => {
+      if (r.city_id === city.id) {
+        c = city;
       }
       return 1;
     });
@@ -101,6 +114,12 @@ const Reservations = () => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
+                      City
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
                       Status
                     </th>
                   </tr>
@@ -126,6 +145,9 @@ const Reservations = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">{r.date_end}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">{reservedCity(r).name}</div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         {isActive(r) === true

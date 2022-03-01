@@ -30,9 +30,9 @@ export const createReserve = (reserve) => async (dispatch) => {
   await axios.post('http://127.0.0.1:3000/api/reservations', {
     date_start: reserve.date_start,
     date_end: reserve.date_end,
-    user_id: 1,
+    user_id: reserve.user_id,
     car_id: reserve.car_id,
-    city_id: 2,
+    city_id: reserve.city_id,
   }).then((res) => res.status)
     .then((data) => {
       if (data === 201) {
