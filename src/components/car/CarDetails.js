@@ -20,7 +20,7 @@ const CarDetails = () => {
     }, 500);
   };
 
-  const carSelected = useSelector((state) => state.cars);
+  const carSelected = useSelector((state) => state.car);
   const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
   const button = (reserved === 'no') ? <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-blue-600 hover:bg-blue-500 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
   return (
@@ -28,7 +28,7 @@ const CarDetails = () => {
       <PopUp carId={id} />
       <div className="car-container sm:flex sm:gap-5 md:justify-center">
         <div className="img-container sm:items-center sm:w-1/2 justify-center">
-          <img src={carSelected.image} alt="car-img" className="w-100" />
+          <img src={carSelected.image} alt="car-img" />
         </div>
         <div className="details flex flex-col items-center sm:w-1/3 lg:mt-10">
           <div className="title flex gap-1 uppercase font-bold">

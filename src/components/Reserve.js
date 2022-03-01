@@ -6,9 +6,10 @@ import { createReserve } from '../redux/reducers/reservationsReducer';
 import { getUser } from '../redux/reducers/usersReducer';
 import { fetchCities } from '../redux/reducers/citiesReducer';
 import './Reserve.css';
+import { fetchCars } from '../redux/reducers/carReducer';
 
 const Reserve = () => {
-  //   const cars = useSelector((state) => state.cars);
+  const cars = useSelector((state) => state.cars);
   const users = useSelector((state) => state.users);
   const cities = useSelector((state) => state.cities);
   const [startDate, setStartDate] = useState(new Date());
@@ -23,6 +24,7 @@ const Reserve = () => {
     const storageUserName = localStorage.getItem('userName');
     dispatch(getUser(storageUserName));
     dispatch(fetchCities());
+    dispatch(fetchCars());
   }, []);
 
   const submitReserveToStore = () => {
@@ -49,25 +51,25 @@ const Reserve = () => {
     navigate('/reservations');
   };
 
-  const car1 = {
-    id: 1,
-    brand: 'Nissan',
-    model: 'GTR',
-    year: 2012,
-    image: 'dsads',
-    reserved: true,
-    price: '100',
-  };
-  const car2 = {
-    id: 2,
-    brand: 'Audi',
-    model: 'A7',
-    year: 2018,
-    image: 'dsads',
-    reserved: true,
-    price: '100',
-  };
-  const cars = [car1, car2];
+  // const car1 = {
+  //   id: 1,
+  //   brand: 'Nissan',
+  //   model: 'GTR',
+  //   year: 2012,
+  //   image: 'dsads',
+  //   reserved: true,
+  //   price: '100',
+  // };
+  // const car2 = {
+  //   id: 2,
+  //   brand: 'Audi',
+  //   model: 'A7',
+  //   year: 2018,
+  //   image: 'dsads',
+  //   reserved: true,
+  //   price: '100',
+  // };
+  // const cars = [car1, car2];
   return (
     <div className="flex flex-col form-container lg:w-4/5">
       <h1 className="text-2xl font-bold green-text m-7 text-center uppercase">create a new reservation</h1>

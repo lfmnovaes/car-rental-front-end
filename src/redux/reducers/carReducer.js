@@ -1,5 +1,5 @@
 const GET_CARS = 'cars/GET';
-const API_URL = 'http://127.0.0.1:3000/api/cars';
+const API_URL = 'http://localhost:3000/api/cars';
 
 const initialState = [];
 
