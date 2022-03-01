@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../redux/reducers/usersReducers';
+import { getUser } from '../redux/reducers/usersReducer';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -54,7 +54,7 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white green-bg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-600"
             >
               Sign in
             </button>
