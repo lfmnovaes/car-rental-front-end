@@ -1,10 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import rootReducer from './reducers/rootReducer';
+import carReducer from './reducers/carReducer';
 
-const configureStore = () => createStore(
-  rootReducer,
+const reducers = combineReducers({
+  cars: carReducer,
+});
+
+const configureStore = createStore(
+  reducers,
   applyMiddleware(logger, thunk),
 );
 

@@ -9,3 +9,6 @@
 .green-bg {
   background-color: #95bf02;
 }
+:root {
+  --green: #95bf02;
+}
