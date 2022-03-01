@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <div className="flex-1">
       <div className="text-center py-20">
-        <h1 className="text-4xl font-bold">Cars available</h1>
-        <p>Please select a model of a car</p>
+        <h1 className="text-4xl font-bold">CARS AVAILABLE TO RENT</h1>
+        <p className="font-semibold text-gray-400">Please select a car model</p>
       </div>
       <Carousel show={3}>
         {carsData.map((e) => (
@@ -25,14 +25,14 @@ const Home = () => {
             </a>
             <div className="px-5 pb-5 text-center">
               <a href={CAR_URL + e.id}>
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  {e.brand}
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900">
+                  {e.brand.toUpperCase()}
                   {' - '}
-                  {e.model}
+                  {e.model.toUpperCase()}
                 </h5>
               </a>
               <div>
-                <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                <span className="text-2xl font-bold text-gray-900">
                   Rent per hour: $
                   {e.price}
                 </span>
