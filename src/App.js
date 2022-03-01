@@ -16,7 +16,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Reservations from './components/Reservations';
 import configureStore from './redux/configureStore';
 
-
 const store = configureStore();
 
 export default function App() {
