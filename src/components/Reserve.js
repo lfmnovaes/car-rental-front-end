@@ -6,6 +6,7 @@ import { createReserve } from '../redux/reducers/reservationsReducer';
 import { getUser } from '../redux/reducers/usersReducer';
 import { fetchCities } from '../redux/reducers/citiesReducer';
 import './Reserve.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Reserve = () => {
   //   const cars = useSelector((state) => state.cars);
