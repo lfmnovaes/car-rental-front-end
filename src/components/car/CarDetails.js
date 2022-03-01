@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getCar } from '../../redux/reducers/carsReducer';
 import PopUp from './PopUp';
 
 const CarDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     const getCarRemote = (id) => {
@@ -20,9 +21,9 @@ const CarDetails = () => {
     }, 500);
   };
 
-  const carSelected = useSelector((state) => state.cars);
+  const carSelected = useSelector((state) => state.car);
   const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
-  const button = (reserved === 'no') ? <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-blue-600 hover:bg-blue-500 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
+  const button = (reserved === 'no') ? <button type="button" onClick={() => navigate('/reserve')} className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-blue-600 hover:bg-blue-500 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
   return (
     <>
       <PopUp carId={id} />

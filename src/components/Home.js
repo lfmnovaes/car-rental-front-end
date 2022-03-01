@@ -4,9 +4,9 @@ import { fetchCars } from '../redux/reducers/carReducer';
 import Carousel from './Carousel/Carousel';
 
 const Home = () => {
-  const CAR_URL = 'http://127.0.0.1:3001/car/';
+  const CAR_URL = 'http://localhost:3001/car/';
   const dispatch = useDispatch();
-  const carsData = useSelector((store) => store.cars);
+  const carsData = useSelector((state) => state.cars);
   useEffect(() => {
     dispatch(fetchCars());
   }, []);

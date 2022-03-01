@@ -18,7 +18,7 @@ const Login = () => {
     setTimeout(() => {
       const key = localStorage.getItem('token');
       if (key !== null) {
-        navigate('/');
+        navigate('/cars');
       } else {
         setUsername('');
       }

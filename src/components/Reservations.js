@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations, removeReserveAPI } from '../redux/reducers/reservationsReducer';
 import { getUser } from '../redux/reducers/usersReducer';
 import { fetchCities } from '../redux/reducers/citiesReducer';
+import { fetchCars } from '../redux/reducers/carReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
   const users = useSelector((state) => state.users);
   const cities = useSelector((state) => state.cities);
-  //   const cars = useSelector((state) => state.cars);
+  const cars = useSelector((state) => state.cars);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -16,6 +17,7 @@ const Reservations = () => {
     const storageUserName = localStorage.getItem('userName');
     dispatch(getUser(storageUserName));
     dispatch(fetchCities());
+    dispatch(fetchCars());
   }, []);
 
   let currentReservations;
@@ -29,20 +31,10 @@ const Reservations = () => {
   } else {
     currentReservations = [];
   }
-  const RentedCar1 = {
-    id: 2,
-    brand: 'Nissan',
-    model: 'GTR',
-    year: 2012,
-    image: 'dsads',
-    reserved: true,
-    price: '100',
-  };
   const deleteReserveFromStore = (reserveId) => {
     dispatch(removeReserveAPI(reserveId));
   };
   const reservedCar = (r) => {
-    const cars = [RentedCar1];
     let c = {};
     cars.map((car) => {
       if (r.car_id === car.id) {
