@@ -6,7 +6,7 @@
 }
 
 /* hide scrollbar in webkit browser */
-.carousel-content::-webkit-scrollbar, .carousel-content::-webkit-scrollbar {
+.carousel-content::-webkit-scrollbar {
   display: none;
 }
 
@@ -38,7 +38,8 @@
   border-top-left-radius: 24px;
 }
 
-.left-arrow, .right-arrow {
+.left-arrow,
+.right-arrow {
   width: 256px;
   height: 48px;
   background-color: var(--green) !important;
