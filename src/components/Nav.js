@@ -15,7 +15,7 @@ const Nav = () => {
     const value = menu.style.display;
     if (value === '') {
       menu.style.display = 'flex';
-    }
+    } else { menu.style.display = ''; }
   };
   return (
     <>
