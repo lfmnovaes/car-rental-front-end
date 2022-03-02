@@ -24,7 +24,15 @@ const CarDetails = () => {
 
   const carSelected = useSelector((state) => state.car);
   const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
-  const button = (reserved === 'no') ? <button type="button" onClick={() => navigate('/reserve')} className="reserve-button green-bg p-3 w-40 rounded-3xl text-center mt-5 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
+  const button = (reserved === 'no') ? (
+    <button
+      type="button"
+      onClick={() => navigate(`/reserve/${carSelected.id}`)}
+      className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 green-bg capitalize text-white"
+    >
+      reserve
+    </button>
+  ) : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
   return (
     <>
       <PopUp />
