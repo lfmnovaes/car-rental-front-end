@@ -1,16 +1,27 @@
 
-@media (min-width:700px) {
- .car-container{
+@media (min-width: 700px) {
+  .car-container {
+    width: 100%;
     display: flex;
+    justify-content: space-around;
+  }
+
+  .details {
     margin-top: 50px;
   }
-  .img-container{
-    width: 60%;
-  } 
+
+  .img-container {
+    width: 80%;
+  }
 }
 
-@media (min-width:1000px) {
-  .car-container{
-    margin: 50px auto;
+@media (min-width: 1000px) {
+  .car-container {
+    margin: 30px auto;
   }
- }
+
+  .img-container {
+    width: 60%;
+    margin: auto;
+  }
+}
