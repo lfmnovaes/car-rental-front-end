@@ -16,6 +16,7 @@ export function getUser(name) {
             dispatch(saveUser(user));
             localStorage.setItem('token', user.id);
             localStorage.setItem('userName', user.name);
+            localStorage.setItem('admin', user.admin);
           }
         },
       );

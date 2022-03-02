@@ -57,79 +57,75 @@ const CarNew = () => {
 
   return (
     <>
-      <div className="mt-10 sm:mt-0 md:ml-20">
-        <div className="mt-5 md:mt-0 md:col-span-2">
-          <div className="w-100 text-center mt-10 text-xl font-bold text-blue-600">
-            <h2>New Car Form</h2>
+      <div className="mt-10 sm:mt-0 md:ml-20 lg:mx-auto">
+        <div className="mt-5 md:mt-0 md:col-span-2 w-96">
+          <div className="w-100 text-center mt-10 text-xl font-bold">
+            <h2 className="green-text">ADD NEW CAR</h2>
           </div>
           <form>
             <div className="shadow overflow-hidden sm:rounded-md">
               <div className="px-4 py-5 bg-white sm:p-6">
-                <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="brand" className="block text-sm font-medium text-gray-700">
-                      Brand
-                      <input
-                        type="text"
-                        name="brand"
-                        id="brand"
-                        autoComplete="brand"
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                      />
-                    </label>
-                  </div>
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="model" className="block text-sm font-medium text-gray-700">
-                      Model
-                      <input
-                        type="text"
-                        name="model"
-                        id="model"
-                        autoComplete="model"
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                      />
-                    </label>
-                  </div>
+
+                <div className="col-span-6 sm:col-span-3">
+                  <label htmlFor="brand" className="block text-sm font-medium text-gray-700">
+                    Brand
+                    <input
+                      type="text"
+                      name="brand"
+                      id="brand"
+                      autoComplete="brand"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </label>
                 </div>
-                <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="year" className="block text-sm font-medium text-gray-700">
-                      Year
-                      <input
-                        type="text"
-                        name="year"
-                        id="year"
-                        autoComplete="year"
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                      />
-                    </label>
-                  </div>
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-                      Image url
-                      <input
-                        type="text"
-                        name="image"
-                        id="image"
-                        autoComplete="image"
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                      />
-                    </label>
-                  </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label htmlFor="model" className="block text-sm font-medium text-gray-700">
+                    Model
+                    <input
+                      type="text"
+                      name="model"
+                      id="model"
+                      autoComplete="model"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </label>
                 </div>
-                <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-                      Price
-                      <input
-                        type="number"
-                        name="price"
-                        id="price"
-                        autoComplete="price"
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                      />
-                    </label>
-                  </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label htmlFor="year" className="block text-sm font-medium text-gray-700">
+                    Year
+                    <input
+                      type="text"
+                      name="year"
+                      id="year"
+                      autoComplete="year"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </label>
+                </div>
+                <div className="col-span-6 sm:col-span-3">
+                  <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                    Image url
+                    <input
+                      type="text"
+                      name="image"
+                      id="image"
+                      autoComplete="image"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </label>
+                </div>
+
+                <div className="col-span-6 sm:col-span-3">
+                  <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+                    Price
+                    <input
+                      type="number"
+                      name="price"
+                      id="price"
+                      autoComplete="price"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    />
+                  </label>
                 </div>
               </div>
               <input id="reserved" defaultValue="false" hidden />
@@ -138,7 +134,7 @@ const CarNew = () => {
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6 xs:col-span-3">
                   <button
                     type="button"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    className="inline-flex green-bg justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     onClick={() => { sendData(); }}
                   >
                     Save
