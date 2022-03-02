@@ -12,7 +12,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 const Reserve = () => {
   const { carId } = useParams();
   const cars = useSelector((state) => state.cars);
-  const users = useSelector((state) => state.users);
+  const user = useSelector((state) => state.users);
   const cities = useSelector((state) => state.cities);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -39,12 +39,10 @@ const Reserve = () => {
     return optionCars;
   };
   const filteredCars = previousCar();
-  console.log(filteredCars);
   const submitReserveToStore = () => {
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
-    if (users.length > 0) {
-      const [user] = users;
+    if (user.length > 0) {
       const currentUser = user[0];
       const reserve = {
         id: 1,

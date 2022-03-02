@@ -7,7 +7,7 @@ import { fetchCars } from '../redux/reducers/carReducer';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations);
-  const users = useSelector((state) => state.users);
+  const user = useSelector((state) => state.users);
   const cities = useSelector((state) => state.cities);
   const cars = useSelector((state) => state.cars);
 
@@ -25,8 +25,8 @@ const Reservations = () => {
     (reservation) => (reservation.user_id === currentUser.id),
   );
 
-  if (users.length > 0) {
-    const currentUser = users[0][0];
+  if (user.length > 0) {
+    const currentUser = user[0];
     currentReservations = filterReservations(currentUser);
   } else {
     currentReservations = [];
