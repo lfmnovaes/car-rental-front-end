@@ -24,11 +24,11 @@ const CarDetails = () => {
 
   const carSelected = useSelector((state) => state.car);
   const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
-  const button = (reserved === 'no') ? <button type="button" onClick={() => navigate('/reserve')} className="reserve-button green-bg p-3 w-40 rounded-3xl text-center mt-5 capitalize text-white">reserve</button> : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
+  const button = (reserved === 'no') ? <button>reserve</button> : <button>reserved</button>;
   return (
     <>
       <PopUp />
-      <div className="flex flex-col">
+      <div className="flex flex-col w-4/5 mx-auto">
         <div className="car-container">
           <div className="img-container">
             <img src={carSelected.image} alt="car-img" className="w-100" />
@@ -52,8 +52,10 @@ const CarDetails = () => {
                 <p className="capitalize px-0">{ reserved }</p>
               </li>
               <li className="btn flex flex-col items-center">
-                { button }
-                <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-red-500 hover:bg-red-400 capitalize text-white" onClick={() => { showPopup(); }}>delete</button>
+                {button}
+                <button type="button" className="delete-button bg-red-500" onClick={() => { showPopup(); }}>
+                  delete
+                </button>
               </li>
             </ul>
           </div>
