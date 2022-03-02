@@ -1,0 +1,16 @@
+
+@media (min-width:700px) {
+ .car-container{
+    display: flex;
+    margin-top: 50px;
+  }
+  .img-container{
+    width: 60%;
+  } 
+}
+
+@media (min-width:1000px) {
+  .car-container{
+    margin: 50px auto;
+  }
+ }
