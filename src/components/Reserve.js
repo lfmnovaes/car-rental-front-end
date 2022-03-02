@@ -39,6 +39,7 @@ const Reserve = () => {
     return optionCars;
   };
   const filteredCars = previousCar();
+  console.log(filteredCars);
   const submitReserveToStore = () => {
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
@@ -97,7 +98,7 @@ const Reserve = () => {
                           value={selectedCar}
                           onChange={(event) => setSelectedCar(event.target.value)}
                         >
-                          {/* <option value="default" hidden>Select Car</option> */}
+                          <option value="default" hidden>Select Car</option>
                           {filteredCars.map((car) => (
                             <option key={car.id} value={car.id}>
                               {car.brand}
