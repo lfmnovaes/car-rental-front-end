@@ -10,8 +10,7 @@ const PopUp = () => {
     document.querySelector('.box').style.marginTop = '-500px';
   };
   const deleteCar = (id) => {
-    axios.delete(`http://localhost:3001/api/cars/${id}`).then((response) => {
-      console.log(response);
+    axios.delete(`http://localhost:3001/api/cars/${id}`).then(() => {
       navigate('/redirect');
     }, (error) => {
       console.log(error);

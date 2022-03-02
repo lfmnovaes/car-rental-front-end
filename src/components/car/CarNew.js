@@ -47,10 +47,6 @@ const CarNew = () => {
         image: newCar.image,
         reserved: newCar.reserved,
         price: newCar.price,
-      }).then((response) => {
-        console.log(response);
-      }, (error) => {
-        console.log(error);
       });
       clearFields();
       mssg('Car saved', 'green');
