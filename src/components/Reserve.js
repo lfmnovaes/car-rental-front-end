@@ -38,10 +38,21 @@ const Reserve = () => {
     optionCars = cars.filter((car) => car.reserved === false);
     return optionCars;
   };
+  const carSelectedFromDetails = parseInt(carId, 10);
+  const a = () => {
+    let c;
+    if (selectedCar === undefined && carId !== undefined) {
+      c = carSelectedFromDetails;
+      return c;
+    }
+    c = selectedCar;
+    return c;
+  };
   const filteredCars = previousCar();
   const submitReserveToStore = () => {
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
+    const carToReserve = a();
     if (user.length > 0) {
       const currentUser = user[0];
       const reserve = {
@@ -49,7 +60,7 @@ const Reserve = () => {
         date_start: sDate.toISOString().split('T')[0],
         date_end: eDate.toISOString().split('T')[0],
         user_id: currentUser.id,
-        car_id: selectedCar,
+        car_id: carToReserve,
         city_id: selectedCity,
       };
       dispatch(createReserve(reserve));
@@ -88,25 +99,47 @@ const Reserve = () => {
                     <div className="col-span-6 sm:col-span-12">
                       <label htmlFor="car" className="block text-sm font-medium text-gray-700">
                         Select the car you want to reserve
-                        <select
-                          id="car"
-                          name="car"
-                          autoComplete="car-name"
-                          className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                          value={selectedCar}
-                          onChange={(event) => setSelectedCar(event.target.value)}
-                        >
-                          <option value="default" hidden>Select Car</option>
-                          {filteredCars.map((car) => (
-                            <option key={car.id} value={car.id}>
-                              {car.brand}
-                              {' '}
-                              -
-                              {' '}
-                              {car.model}
-                            </option>
-                          ))}
-                        </select>
+                        {filteredCars.length === 1
+                          ? (
+                            <select
+                              id="car"
+                              name="car"
+                              autoComplete="car-name"
+                              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                              value={carSelectedFromDetails}
+                            >
+                              <option value={filteredCars[0].id}>
+                                {filteredCars[0].brand}
+                                {' '}
+                                -
+                                {' '}
+                                {filteredCars[0].model}
+                              </option>
+                            </select>
+                          )
+                          : (
+                            <select
+                              id="car"
+                              name="car"
+                              autoComplete="car-name"
+                              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                              value={selectedCar}
+                              onChange={(event) => setSelectedCar(event.target.value)}
+                            >
+                              <option value="default" hidden>Select Car</option>
+
+                              {filteredCars.map((car) => (
+
+                                <option key={car.id} value={car.id}>
+                                  {car.brand}
+                                  {' '}
+                                  -
+                                  {' '}
+                                  {car.model}
+                                </option>
+                              ))}
+                            </select>
+                          )}
                       </label>
                     </div>
 
