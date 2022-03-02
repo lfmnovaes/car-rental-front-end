@@ -31,6 +31,7 @@ export default function App() {
               <Route path="/car/new" exac element={<CarNew />} />
               <Route path="/redirect" exac element={<Redirect />} />
               <Route path="/reserve" exac element={<Reserve />} />
+              <Route path="/reserve/:carId" exac element={<Reserve />} />
               <Route path="/reservations" exac element={<Reservations />} />
             </Route>
             <Route path="/login" exac element={<Login />} />
