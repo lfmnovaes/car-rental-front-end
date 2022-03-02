@@ -35,7 +35,7 @@ const Reserve = () => {
       optionCars = cars.filter((car) => car.id === parseInt(carId, 10));
       return optionCars;
     }
-    optionCars = cars;
+    optionCars = cars.filter((car) => car.reserved === false);
     return optionCars;
   };
   const filteredCars = previousCar();
