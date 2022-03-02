@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { useSelector, useDispatch } from 'react-redux';
 import { createReserve } from '../redux/reducers/reservationsReducer';
@@ -10,6 +10,7 @@ import './Reserve.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const Reserve = () => {
+  const { carId } = useParams();
   const cars = useSelector((state) => state.cars);
   const users = useSelector((state) => state.users);
   const cities = useSelector((state) => state.cities);
@@ -28,6 +29,16 @@ const Reserve = () => {
     dispatch(fetchCars());
   }, []);
 
+  let optionCars = [];
+  const previousCar = () => {
+    if (carId !== undefined) {
+      optionCars = cars.filter((car) => car.id === parseInt(carId, 10));
+      return optionCars;
+    }
+    optionCars = cars;
+    return optionCars;
+  };
+  const filteredCars = previousCar();
   const submitReserveToStore = () => {
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
@@ -86,8 +97,8 @@ const Reserve = () => {
                           value={selectedCar}
                           onChange={(event) => setSelectedCar(event.target.value)}
                         >
-                          <option value="default" hidden>Select Car</option>
-                          {cars.map((car) => (
+                          {/* <option value="default" hidden>Select Car</option> */}
+                          {filteredCars.map((car) => (
                             <option key={car.id} value={car.id}>
                               {car.brand}
                               {' '}
