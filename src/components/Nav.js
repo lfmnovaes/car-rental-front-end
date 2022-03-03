@@ -57,7 +57,7 @@ const Nav = () => {
                   }`}
                   href="/reservations"
                 >
-                  <span className="mx-4 font-medium">My Reservations</span>
+                  <span className="mx-4 pr-8 font-medium">My Reservations</span>
                 </a>
               </li>
             </ul>
@@ -79,10 +79,20 @@ const Nav = () => {
           <button type="button" className="text-lg green-text" onClick={showPopup}>&#9776;</button>
         </div>
       </div>
-      <div className="pop-up hidden flex flex-col absolute py-5 px-20 bg-white shadow-md">
-        <a href="/car" className="pb-3 text-lg text-gray-600">Link</a>
-        <a href="/reserve" className="pb-3 text-lg text-gray-600">Reserve</a>
-        <a href="/reservations" className="pb-3 text-lg text-gray-600">Reservations</a>
+      <div className="pop-up hidden flex flex-col items-start absolute py-5 px-5 bg-transparent backdrop-blur-lg shadow-md h-full w-full">
+        <a href="/car" className="pb-3 text-2xl text-gray-600">Cars</a>
+        <a href="/reserve" className="pb-3 text-2xl text-gray-600">Reserve</a>
+        <a href="/reservations" className="pb-3 text-2xl text-gray-600">Reservations</a>
+        <button
+          type="button"
+          onClick={clearClick}
+          href="/"
+          className="group relative w-full flex justify-center py-2 px-4 border border-transparent
+          text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none
+          focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-auto"
+        >
+          Log Out
+        </button>
       </div>
     </>
   );

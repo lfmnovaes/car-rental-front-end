@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rent Car Front-End
 
-## Available Scripts
+> Final Capstone Project, We have done a full responsive application to rent cars around the world.
 
-In the project directory, you can run:
+## Built With
 
-### `npm start`
+React >= 17.0.2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Redux >= 4.1.2
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tailwind-Css >= 3.0.23
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- To get a local copy of the repository please run the following commands on your terminal:
+   ```
+   git clone https://github.com/ramiaquista/car-rental-front-end
+   ```
+- Go to the cloned directory with `cd car-rental-front-end`
+- Run `npm install` to install all the necessary packages
+- After installing everything, you can run now the website with `npm start`
 
-### `npm run build`
+## Running linters locally
+   
+- Eslint (JavaScript code linter), run: `npx eslint .`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- StyleLint (CSS code linter), run: `npx stylelint "**/*.{css,scss}"`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👤 **Luís Fernando**
 
-### `npm run eject`
+- GitHub: [![@lfmnovaes](https://img.shields.io/github/followers/lfmnovaes?color=lightgray&style=plastic&labelColor=blue)](https://github.com/lfmnovaes)
+- Twitter: [![@lfmnovaes](https://img.shields.io/twitter/follow/lfmnovaes?style=plastic&labelColor=blue)](https://www.twitter.com/lfmnovaes/)
+- LinkedIn: [![@lfmnovaes](https://img.shields.io/badge/LinkedIn-blue?style=plastic&logo=linkedin)](https://www.linkedin.com/in/lfmnovaes/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+👤 **Ramiro Aquistapace**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- GitHub: [@ramiaquista](https://github.com/ramiaquista)
+- Twitter: [@ramiaq1](https://twitter.com/ramiaq1)
+- LinkedIn: [RamiroAquistapace](https://www.linkedin.com/in/ramiro-aquistapace-32b61b204/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👤 **Enmanuel Lassis**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [GitHub](https://github.com/elassis)
+- [LinkedIn](https://linkedin.com/in/enmanuel-lassis-peña)
 
-## Learn More
+## Kanban board
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Link to the kanban board: [Kanban-Board](https://github.com/lfmnovaes/car-rental-back-end/projects/1)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Link to the kanban board image: [Kanban-Image](https://user-images.githubusercontent.com/61469201/154359272-8ebc368b-dcb9-403c-93df-e5a7b50b8ba7.png)
 
-### Code Splitting
+- Number of Team Members: 3
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contributions, issues, and feature requests are welcome!
 
-### Analyzing the Bundle Size
+Feel free to check the [issues page](../../issues/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Show your support
 
-### Making a Progressive Web App
+Give a ⭐️ if you like this project!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Acknowledgments
 
-### Advanced Configuration
+- Microverse
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📝 License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](./LICENSE) licensed.
