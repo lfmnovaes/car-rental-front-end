@@ -1,23 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../redux/reducers/carReducer';
 import Carousel from './Carousel/Carousel';
+import useWindowDimensions from './windowDimensions';
 
 const Home = () => {
   const CAR_URL = 'http://localhost:3001/car/';
   const dispatch = useDispatch();
   const carsData = useSelector((state) => state.cars);
+  const [items, setItems] = useState(3);
+  const { width } = useWindowDimensions();
+  const itemsToShow = () => {
+    if (width < 414) {
+      return 1;
+    } if (width < 1024) {
+      return 2;
+    }
+    return 3;
+  };
   useEffect(() => {
     dispatch(fetchCars());
   }, []);
-
+  useEffect(() => {
+    setItems(itemsToShow());
+  }, [width]);
   return (
-    <div className="flex-1">
+    <div className="lg:w-10/12 sm:w-full">
       <div className="text-center py-20">
         <h1 className="text-4xl font-bold">CARS AVAILABLE TO RENT</h1>
         <p className="font-semibold text-gray-400">Please select a car model</p>
       </div>
-      <Carousel show={3}>
+      <Carousel show={items}>
         {carsData.map((e) => (
           <div key={e.id} className="max-w bg-white h-full">
             <a href={CAR_URL + e.id}>
