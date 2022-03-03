@@ -12,8 +12,6 @@ const PopUp = () => {
   const deleteCar = (id) => {
     axios.delete(`https://final-capstone-project-lfmn.herokuapp.com/api/cars/${id}`).then(() => {
       navigate('/redirect');
-    }, (error) => {
-      console.log(error);
     });
   };
   return (
