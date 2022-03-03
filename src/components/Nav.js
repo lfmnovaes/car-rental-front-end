@@ -1,24 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const showAddCarButton = () => {
-  const isAdmin = localStorage.getItem('admin');
-  const btn = document.querySelector('.add-car');
-  const btnPopUp = document.querySelector('.add-car-pop');
-  if (isAdmin === 'true') {
-    btn.style.display = 'flex';
-    btnPopUp.style.display = 'block';
-  }
-};
 const Nav = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  useEffect(() => {
-    showAddCarButton();
-  }, []);
+  const show = (localStorage.getItem('admin') === 'true') ? 'flex' : 'hidden';
   const clearClick = () => {
     localStorage.clear();
-    showAddCarButton();
     setTimeout(() => {
       navigate('/login');
     }, 1000);
@@ -51,7 +39,7 @@ const Nav = () => {
               </li>
               <li>
                 <a
-                  className={`add-car flex items-center hidden px-4 py-2 mt-5 text-gray-700" ${
+                  className={`add-car flex items-center ${show} px-4 py-2 mt-5 text-gray-700" ${
                     location.pathname === '/car/new'
                       ? 'green-bg rounded-md'
                       : 'hover:bg-gray-200 rounded-md'
@@ -104,11 +92,21 @@ const Nav = () => {
           <button type="button" className="text-lg green-text" onClick={showPopup}>&#9776;</button>
         </div>
       </div>
-      <div className="pop-up hidden flex flex-col absolute py-5 px-20 bg-white shadow-md">
+      <div className="pop-up hidden flex flex-col items-start absolute z-10 py-5 px-5 bg-transparent backdrop-blur-lg shadow-md h-full w-full">
         <a href="/cars" className="pb-3 text-lg text-gray-600">Cars</a>
-        <a href="/car/new" className="add-car-pop hidden pb-3 text-lg text-gray-600">Add Car</a>
+        <a href="/car/new" className={`add-car-pop ${show} pb-3 text-lg text-gray-600`}>Add Car</a>
         <a href="/reserve" className="pb-3 text-lg text-gray-600">Reserve</a>
         <a href="/reservations" className="pb-3 text-lg text-gray-600">Reservations</a>
+        <button
+          type="button"
+          onClick={clearClick}
+          href="/"
+          className="group relative w-full flex justify-center py-2 px-4 border border-transparent
+          text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none
+          focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-auto"
+        >
+          Log Out
+        </button>
       </div>
     </>
   );
