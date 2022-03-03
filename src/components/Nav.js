@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Nav = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const show = (localStorage.getItem('admin') === 'true') ? 'flex' : 'hidden';
   const clearClick = () => {
     localStorage.clear();
     setTimeout(() => {
@@ -34,6 +35,18 @@ const Nav = () => {
                   href="/cars"
                 >
                   <span className="mx-4 font-medium">Cars</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  className={`add-car flex items-center ${show} px-4 py-2 mt-5 text-gray-700" ${
+                    location.pathname === '/car/new'
+                      ? 'green-bg rounded-md'
+                      : 'hover:bg-gray-200 rounded-md'
+                  }`}
+                  href="/car/new"
+                >
+                  <span className="mx-4 font-medium">Add Car</span>
                 </a>
               </li>
               <li>
@@ -79,10 +92,11 @@ const Nav = () => {
           <button type="button" className="text-lg green-text" onClick={showPopup}>&#9776;</button>
         </div>
       </div>
-      <div className="pop-up hidden flex flex-col items-start absolute py-5 px-5 bg-transparent backdrop-blur-lg shadow-md h-full w-full">
-        <a href="/car" className="pb-3 text-2xl text-gray-600">Cars</a>
-        <a href="/reserve" className="pb-3 text-2xl text-gray-600">Reserve</a>
-        <a href="/reservations" className="pb-3 text-2xl text-gray-600">Reservations</a>
+      <div className="pop-up hidden flex flex-col items-start absolute z-10 py-5 px-5 bg-transparent backdrop-blur-lg shadow-md h-full w-full">
+        <a href="/cars" className="pb-3 text-lg text-gray-600">Cars</a>
+        <a href="/car/new" className={`add-car-pop ${show} pb-3 text-lg text-gray-600`}>Add Car</a>
+        <a href="/reserve" className="pb-3 text-lg text-gray-600">Reserve</a>
+        <a href="/reservations" className="pb-3 text-lg text-gray-600">Reservations</a>
         <button
           type="button"
           onClick={clearClick}

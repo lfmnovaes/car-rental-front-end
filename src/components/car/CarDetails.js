@@ -8,6 +8,7 @@ import './Details.css';
 const CarDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const show = (localStorage.getItem('admin') === 'true') ? 'block' : 'hidden';
   const { id } = useParams();
   useEffect(() => {
     const getCarRemote = (id) => {
@@ -61,7 +62,13 @@ const CarDetails = () => {
               </li>
               <li className="btn flex flex-col items-center">
                 {button}
-                <button type="button" className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 bg-red-500 hover:bg-red-400 capitalize text-white" onClick={() => { showPopup(); }}>delete</button>
+                <button
+                  type="button"
+                  className={`delete-button p-3 w-40 rounded-3xl text-center ${show} mt-5 bg-red-500 hover:bg-red-400 capitalize text-white`}
+                  onClick={() => { showPopup(); }}
+                >
+                  delete
+                </button>
               </li>
             </ul>
           </div>

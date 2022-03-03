@@ -5,7 +5,7 @@ const Redirect = () => {
   const navigate = useNavigate();
   const redirect = () => {
     setTimeout(() => {
-      navigate('/');
+      navigate('/cars');
     }, 2000);
   };
   return (
