@@ -16,7 +16,7 @@ export const removeReserve = (payload) => ({
 });
 
 export const fetchReservations = () => async (dispatch) => {
-  await axios.get('http://127.0.0.1:3000/api/reservations', {
+  await axios.get('https://final-capstone-project-lfmn.herokuapp.com/api/reservations', {
     mode: 'no-cors',
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -27,7 +27,7 @@ export const fetchReservations = () => async (dispatch) => {
 };
 
 export const createReserve = (reserve) => async (dispatch) => {
-  await axios.post('http://127.0.0.1:3000/api/reservations', {
+  await axios.post('https://final-capstone-project-lfmn.herokuapp.com/api/reservations', {
     date_start: reserve.date_start,
     date_end: reserve.date_end,
     user_id: reserve.user_id,
@@ -42,7 +42,7 @@ export const createReserve = (reserve) => async (dispatch) => {
 };
 
 export const removeReserveAPI = (reserveToDelete) => async (dispatch) => {
-  await axios.delete(`http://localhost:3000/api/reservations/${reserveToDelete}`)
+  await axios.delete(`https://final-capstone-project-lfmn.herokuapp.com/api/reservations/${reserveToDelete}`)
     .then((res) => res.status)
     .then((data) => {
       if (data === 201) {

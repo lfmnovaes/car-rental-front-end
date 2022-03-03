@@ -39,7 +39,7 @@ const CarNew = () => {
     const elements = Object.values(newCar);
     const validate = elements.filter((e) => e === '');
     if (validate.length < 1) {
-      axios.post('http://localhost:3000/api/cars', {
+      axios.post('https://final-capstone-project-lfmn.herokuapp.com/api/cars', {
         id: newCar.id,
         brand: newCar.brand,
         model: newCar.model,

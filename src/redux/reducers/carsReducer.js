@@ -6,7 +6,7 @@ export const saveCar = (payload) => ({
 });
 export function getCar(id) {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/cars/${id}`)
+    fetch(`https://final-capstone-project-lfmn.herokuapp.com/api/cars/${id}`)
       .then((response) => response.json())
       .then((json) => dispatch(saveCar(json)));
   };

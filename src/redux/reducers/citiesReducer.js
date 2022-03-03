@@ -5,7 +5,7 @@ const GET_CITIES = 'GET_CITIES';
 export const getCities = (payload) => ({ type: GET_CITIES, payload });
 
 export const fetchCities = () => async (dispatch) => {
-  await axios.get('http://127.0.0.1:3000/api/cities', {
+  await axios.get('https://final-capstone-project-lfmn.herokuapp.com/api/cities', {
     mode: 'no-cors',
     headers: {
       'Access-Control-Allow-Origin': '*',

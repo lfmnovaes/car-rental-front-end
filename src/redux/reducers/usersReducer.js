@@ -7,7 +7,7 @@ export const saveUser = (payload) => ({
 
 export function getUser(name) {
   return (dispatch) => {
-    fetch('http://localhost:3000/api/users')
+    fetch('https://final-capstone-project-lfmn.herokuapp.com/api/users')
       .then((response) => response.json())
       .then(
         (json) => {
