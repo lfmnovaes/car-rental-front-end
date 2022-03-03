@@ -5,17 +5,12 @@ import { getCar } from '../../redux/reducers/carsReducer';
 import PopUp from './PopUp';
 import './Details.css';
 
-const showDeleteButton = () => {
-  const isAdmin = localStorage.getItem('admin');
-  const btn = document.querySelector('.delete-button');
-  if (isAdmin === 'true') btn.style.display = 'block';
-};
 const CarDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const show = (localStorage.getItem('admin') === 'true') ? 'block' : 'hidden';
   const { id } = useParams();
   useEffect(() => {
-    showDeleteButton();
     const getCarRemote = (id) => {
       dispatch(getCar(id));
     };
@@ -69,7 +64,7 @@ const CarDetails = () => {
                 {button}
                 <button
                   type="button"
-                  className="delete-button hidden p-3 w-40 rounded-3xl text-center mt-5 bg-red-500 hover:bg-red-400 capitalize text-white"
+                  className={`delete-button p-3 w-40 rounded-3xl text-center ${show} mt-5 bg-red-500 hover:bg-red-400 capitalize text-white`}
                   onClick={() => { showPopup(); }}
                 >
                   delete
