@@ -25,7 +25,7 @@ const Home = () => {
     setItems(itemsToShow());
   }, [width]);
   return (
-    <div className="flex-1">
+    <div className="lg:w-10/12 sm:w-full">
       <div className="text-center py-20">
         <h1 className="text-4xl font-bold">CARS AVAILABLE TO RENT</h1>
         <p className="font-semibold text-gray-400">Please select a car model</p>
