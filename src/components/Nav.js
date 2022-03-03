@@ -70,7 +70,7 @@ const Nav = () => {
                   }`}
                   href="/reservations"
                 >
-                  <span className="mx-4 font-medium">My Reservations</span>
+                  <span className="mx-4 pr-8 font-medium">My Reservations</span>
                 </a>
               </li>
             </ul>
