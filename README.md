@@ -4,18 +4,17 @@
 
 > Final Capstone Project, We have done a full responsive application to rent cars around the world.
 
-## Website
+## Live Demos
 
 - Link to BackEnd API Server [Here](https://final-capstone-project-lfmn.herokuapp.com/api/cars)
-- Link to the Website [Try it Here](https://final-capstone-project-r.netlify.app/)
+- Link to the Website [Try it Here](https://car-rental-frontend-lfmn.netlify.app/)
 
 ## Built With
 
-React >= 17.0.2
-
-Redux >= 4.1.2
-
-Tailwind-Css >= 3.0.23
+* [NodeJS](https://nodejs.org/en/)
+* [ReactJS](https://reactjs.org/)
+* [React Redux](https://react-redux.js.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
 
 ## Getting Started
 
@@ -59,6 +58,7 @@ Tailwind-Css >= 3.0.23
 - Link to the kanban board image: [Kanban-Image](https://user-images.githubusercontent.com/61469201/154359272-8ebc368b-dcb9-403c-93df-e5a7b50b8ba7.png)
 
 - Number of Team Members: 3
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
