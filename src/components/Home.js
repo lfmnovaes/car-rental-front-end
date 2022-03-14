@@ -5,7 +5,7 @@ import Carousel from './Carousel/Carousel';
 import useWindowDimensions from './windowDimensions';
 
 const Home = () => {
-  const CAR_URL = 'http://localhost:3001/car/';
+  const CAR_URL = 'https://final-capstone-project-r.netlify.app/car/';
   const dispatch = useDispatch();
   const carsData = useSelector((state) => state.cars);
   const [items, setItems] = useState(3);

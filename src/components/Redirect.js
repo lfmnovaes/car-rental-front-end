@@ -11,7 +11,7 @@ const Redirect = () => {
   return (
     <>
       <p>Car Deleted successfully, redirecting...</p>
-      {(function () {
+      {(function a() {
         redirect();
       }())}
     </>

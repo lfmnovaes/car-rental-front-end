@@ -28,7 +28,7 @@ const Nav = () => {
               <li>
                 <a
                   className={`flex items-center px-4 py-2 text-gray-700 rounded-md" ${
-                    location.pathname === '/cars'
+                    location.pathname === '/cars' || location.pathname === '/'
                       ? 'green-bg rounded-md'
                       : 'hover:bg-gray-200 rounded-md'
                   }`}
