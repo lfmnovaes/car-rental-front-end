@@ -27,15 +27,20 @@ const Login = () => {
 
   return (
     <div className="mx-auto mt-20">
-      <div className="w-80 mx-auto">
+      <div className="mx-auto w-80">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
+            Sign in to your account
+          </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="-space-y-px rounded-md shadow-sm">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Username
                 <input
                   id="username"
@@ -45,7 +50,7 @@ const Login = () => {
                   required
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="appearance-none rounded relative block w-full px-3 py-2 mt-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="relative block w-full px-3 py-2 mt-3 text-gray-900 placeholder-gray-500 border border-gray-300 rounded appearance-none rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Enter your Username"
                 />
               </label>
@@ -54,15 +59,16 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white green-bg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-600"
+              className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md group green-bg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-600"
             >
               Sign in
             </button>
           </div>
         </form>
+        <br />
+        <span>For testing purposes, use &apos;Maria&apos; or &apos;John Doe&apos;</span>
       </div>
     </div>
-
   );
 };
 

@@ -2,7 +2,15 @@
 
 # Rent Car Front-End
 
-> Final Capstone Project, We have done a full responsive application to rent cars around the world.
+> Car Rental Frontend Application that let the user rent cars on a given date. Interacts with the RoR Backend Application.
+
+## Preview
+![Preview of Car Rental App](./preview.png)
+
+## Live demo
+
+- Link to BackEnd API Server [Here](https://final-capstone-project-lfmn.herokuapp.com/api/cars)
+- Link to the Website [Try it Here](https://car-rental-frontend-lfmn.netlify.app/)
 
 ## Live Demos
 

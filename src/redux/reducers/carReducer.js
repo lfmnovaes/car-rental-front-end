@@ -1,5 +1,5 @@
 const GET_CARS = 'cars/GET';
-const API_URL = 'https://final-capstone-project-lfmn.herokuapp.com/api/cars';
+const API_URL = 'https://final-capstone-project-lfmn.herokuapp.com/api/cars/';
 
 const initialState = [];
 

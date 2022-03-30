@@ -8,7 +8,7 @@ import './Details.css';
 const CarDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const show = (localStorage.getItem('admin') === 'true') ? 'block' : 'hidden';
+  const show = localStorage.getItem('admin') === 'true' ? 'block' : 'hidden';
   const { id } = useParams();
   useEffect(() => {
     const getCarRemote = (id) => {
@@ -24,16 +24,24 @@ const CarDetails = () => {
   };
 
   const carSelected = useSelector((state) => state.car);
-  const reserved = (carSelected.reserved === false) ? 'no' : 'yes';
-  const button = (reserved === 'no') ? (
+  const reserved = carSelected.reserved === false ? 'no' : 'yes';
+  const button = reserved === 'no' ? (
     <button
       type="button"
       onClick={() => navigate(`/reserve/${carSelected.id}`)}
-      className="reserve-button p-3 w-40 rounded-3xl text-center mt-5 green-bg capitalize text-white"
+      className="w-40 p-3 mt-5 text-center text-white capitalize reserve-button rounded-3xl green-bg"
     >
-      reserve
+      Reserve
     </button>
-  ) : <button type="button" className="p-3 w-40 rounded-3xl text-center mt-5 bg-gray-200 text-gray-500 " disabled>Reserved</button>;
+  ) : (
+    <button
+      type="button"
+      className="w-40 p-3 mt-5 text-center text-gray-500 bg-gray-200 rounded-3xl "
+      disabled
+    >
+      Reserved
+    </button>
+  );
   return (
     <>
       <PopUp />
@@ -43,29 +51,31 @@ const CarDetails = () => {
             <img src={carSelected.image} alt="car-img" className="w-100" />
           </div>
           <div className="details sm:w-52 sm:mx-auto">
-            <div className="title flex gap-1 uppercase font-bold">
-              <p>{ carSelected.brand }</p>
-              <p>{ carSelected.model }</p>
+            <div className="flex gap-1 font-bold uppercase title">
+              <p>{carSelected.brand}</p>
+              <p>{carSelected.model}</p>
             </div>
-            <ul className="data mt-2">
+            <ul className="mt-2 data">
               <li className="flex bg-gray-200">
-                <p className="capitalize px-2">year:</p>
-                <p className="capitalize px-7">{ carSelected.year }</p>
+                <p className="px-2 capitalize">year:</p>
+                <p className="capitalize px-7">{carSelected.year}</p>
               </li>
               <li className="flex">
-                <p className="capitalize px-2">price:</p>
-                <p className="capitalize px-6">{ carSelected.price }</p>
+                <p className="px-2 capitalize">price:</p>
+                <p className="px-6 capitalize">{carSelected.price}</p>
               </li>
               <li className="flex bg-gray-200">
-                <p className="capitalize px-2">reserved:</p>
-                <p className="capitalize px-0">{ reserved }</p>
+                <p className="px-2 capitalize">reserved:</p>
+                <p className="px-0 capitalize">{reserved}</p>
               </li>
-              <li className="btn flex flex-col items-center">
+              <li className="flex flex-col items-center btn">
                 {button}
                 <button
                   type="button"
                   className={`delete-button p-3 w-40 rounded-3xl text-center ${show} mt-5 bg-red-500 hover:bg-red-400 capitalize text-white`}
-                  onClick={() => { showPopup(); }}
+                  onClick={() => {
+                    showPopup();
+                  }}
                 >
                   delete
                 </button>
@@ -73,7 +83,15 @@ const CarDetails = () => {
             </ul>
           </div>
         </div>
-        <button type="button" className="green-bg p-3 w-20 rounded-3xl rounded-l-none text-center mt-5 capitalize text-white" onClick={() => { navigate('/cars'); }}>&#10092;</button>
+        <button
+          type="button"
+          className="w-20 p-3 mt-5 text-center text-white capitalize rounded-l-none green-bg rounded-3xl"
+          onClick={() => {
+            navigate('/cars');
+          }}
+        >
+          &#10092;
+        </button>
       </div>
     </>
   );

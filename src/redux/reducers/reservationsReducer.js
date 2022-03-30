@@ -4,6 +4,7 @@ import { getReservations } from '../actions/actionCreator';
 
 const ADD_RESERVE = 'ADD_RESERVE';
 const REMOVE_RESERVE = 'REMOVE_RESERVE';
+const API_RESERVATIONS_URL = 'https://final-capstone-project-lfmn.herokuapp.com/api/reservations';
 
 export const addReserve = (payload) => ({
   type: ADD_RESERVE,
@@ -16,7 +17,7 @@ export const removeReserve = (payload) => ({
 });
 
 export const fetchReservations = () => async (dispatch) => {
-  await axios.get('https://final-capstone-project-lfmn.herokuapp.com/api/reservations', {
+  await axios.get(API_RESERVATIONS_URL, {
     mode: 'no-cors',
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -27,7 +28,7 @@ export const fetchReservations = () => async (dispatch) => {
 };
 
 export const createReserve = (reserve) => async (dispatch) => {
-  await axios.post('https://final-capstone-project-lfmn.herokuapp.com/api/reservations', {
+  await axios.post(API_RESERVATIONS_URL, {
     date_start: reserve.date_start,
     date_end: reserve.date_end,
     user_id: reserve.user_id,
@@ -42,7 +43,7 @@ export const createReserve = (reserve) => async (dispatch) => {
 };
 
 export const removeReserveAPI = (reserveToDelete) => async (dispatch) => {
-  await axios.delete(`https://final-capstone-project-lfmn.herokuapp.com/api/reservations/${reserveToDelete}`)
+  await axios.delete(`${API_RESERVATIONS_URL}${reserveToDelete}`)
     .then((res) => res.status)
     .then((data) => {
       if (data === 201) {

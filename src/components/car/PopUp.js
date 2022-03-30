@@ -10,21 +10,43 @@ const PopUp = () => {
     document.querySelector('.box').style.marginTop = '-500px';
   };
   const deleteCar = (id) => {
-    axios.delete(`https://final-capstone-project-lfmn.herokuapp.com/api/cars/${id}`).then(() => {
-      navigate('/redirect');
-    });
+    axios
+      .delete(
+        `https://final-capstone-project-lfmn.herokuapp.com/api/cars/${id}`,
+      )
+      .then(() => {
+        navigate('/redirect');
+      });
   };
   return (
-    <div className="shadow hidden absolute w-screen h-full bg-black bg-opacity-60">
-      <div className="box flex gap-5 -mt-60 mx-auto ease-linear duration-500 items-center bg-white w-72 p-5 rounded">
-        <div className="flex gap-5 items-center">
+    <div className="absolute hidden w-screen h-full bg-black shadow bg-opacity-60">
+      <div className="flex items-center gap-5 p-5 mx-auto duration-500 ease-linear bg-white rounded box -mt-60 w-72">
+        <div className="flex items-center gap-5">
           <p className="text-2xl">&#9888;</p>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="normal-case text-gray-500">Are you sure to delete this car ?</p>
+          <p className="text-gray-500 normal-case">
+            Are you sure to delete this car ?
+          </p>
           <div className="flex gap-20">
-            <button type="button" className="capitalize text-sm text-gray-400" onClick={() => { deleteCar(id); }}>yes</button>
-            <button type="button" className="capitalize bg-blue-500 text-white text-sm py-1 px-2 rounded" onClick={() => { hidePopup(); }}>cancel</button>
+            <button
+              type="button"
+              className="text-sm text-gray-400 capitalize"
+              onClick={() => {
+                deleteCar(id);
+              }}
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              className="px-2 py-1 text-sm text-white capitalize bg-blue-500 rounded"
+              onClick={() => {
+                hidePopup();
+              }}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       </div>

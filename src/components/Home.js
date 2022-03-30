@@ -5,7 +5,7 @@ import Carousel from './Carousel/Carousel';
 import useWindowDimensions from './windowDimensions';
 
 const Home = () => {
-  const CAR_URL = 'https://final-capstone-project-r.netlify.app/car/';
+  const CAR_URL = 'https://car-rental-frontend-lfmn.netlify.app/car/';
   const dispatch = useDispatch();
   const carsData = useSelector((state) => state.cars);
   const [items, setItems] = useState(3);
@@ -13,7 +13,8 @@ const Home = () => {
   const itemsToShow = () => {
     if (width < 414) {
       return 1;
-    } if (width < 1024) {
+    }
+    if (width < 1024) {
       return 2;
     }
     return 3;
@@ -26,13 +27,13 @@ const Home = () => {
   }, [width]);
   return (
     <div className="lg:w-10/12 sm:w-full">
-      <div className="text-center py-20">
+      <div className="py-20 text-center">
         <h1 className="text-4xl font-bold">CARS AVAILABLE TO RENT</h1>
         <p className="font-semibold text-gray-400">Please select a car model</p>
       </div>
       <Carousel show={items}>
         {carsData.map((e) => (
-          <div key={e.id} className="max-w bg-white h-full">
+          <div key={e.id} className="h-full bg-white max-w">
             <a href={CAR_URL + e.id}>
               <img className="p-8 rounded-t-lg" src={e.image} alt="product" />
             </a>
@@ -51,7 +52,7 @@ const Home = () => {
                 </span>
               </div>
               <br />
-              <div className="flex gap-2 pt-4 justify-center">
+              <div className="flex justify-center gap-2 pt-4">
                 <svg
                   className="icon"
                   role="img"
