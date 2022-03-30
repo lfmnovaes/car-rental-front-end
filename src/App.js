@@ -22,6 +22,7 @@ export default function App() {
           <Nav />
           <Routes>
             <Route exact path="/" element={<ProtectedRoute />}>
+              <Route path="/" exac element={<Home />} />
               <Route path="/cars" exac element={<Home />} />
               <Route path="/car/:id" exac element={<CarDetails />} />
               <Route path="/car/new" exac element={<CarNew />} />

@@ -12,13 +12,17 @@
 - Link to BackEnd API Server [Here](https://final-capstone-project-lfmn.herokuapp.com/api/cars)
 - Link to the Website [Try it Here](https://car-rental-frontend-lfmn.netlify.app/)
 
+## Live Demos
+
+- Link to BackEnd API Server [Here](https://final-capstone-project-lfmn.herokuapp.com/api/cars)
+- Link to the Website [Try it Here](https://car-rental-frontend-lfmn.netlify.app/)
+
 ## Built With
 
-React >= 17.0.2
-
-Redux >= 4.1.2
-
-TailwindCSS >= 3.0.23
+* [NodeJS](https://nodejs.org/en/)
+* [ReactJS](https://reactjs.org/)
+* [React Redux](https://react-redux.js.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
 
 ## Getting Started
 
