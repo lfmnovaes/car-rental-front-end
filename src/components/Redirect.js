@@ -11,9 +11,9 @@ const Redirect = () => {
   return (
     <>
       <p>Car Deleted successfully, redirecting...</p>
-      {(function () {
+      {() => {
         redirect();
-      }())}
+      }}
     </>
   );
 };

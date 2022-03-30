@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 .green-text {
-    color: #95bf02;
+  color: #95bf02;
 }
-  
+
 .green-bg {
   background-color: #95bf02;
 }
+
 :root {
   --green: #95bf02;
 }

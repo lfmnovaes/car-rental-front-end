@@ -2,7 +2,15 @@
 
 # Rent Car Front-End
 
-> Final Capstone Project, We have done a full responsive application to rent cars around the world.
+> Car Rental Frontend Application that let the user rent cars on a given date. Interacts with the RoR Backend Application.
+
+## Preview
+![Preview of Car Rental App](./preview.png)
+
+## Live demo
+
+- Link to BackEnd API Server [Here](https://final-capstone-project-lfmn.herokuapp.com/api/cars)
+- Link to the Website [Try it Here](https://car-rental-frontend-lfmn.netlify.app/)
 
 ## Built With
 
@@ -10,7 +18,7 @@ React >= 17.0.2
 
 Redux >= 4.1.2
 
-Tailwind-Css >= 3.0.23
+TailwindCSS >= 3.0.23
 
 ## Getting Started
 
@@ -54,6 +62,7 @@ Tailwind-Css >= 3.0.23
 - Link to the kanban board image: [Kanban-Image](https://user-images.githubusercontent.com/61469201/154359272-8ebc368b-dcb9-403c-93df-e5a7b50b8ba7.png)
 
 - Number of Team Members: 3
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
