@@ -2,15 +2,10 @@
 
 # Rent Car Front-End
 
-> Car Rental Frontend Application that let the user rent cars on a given date. Interacts with the RoR Backend Application.
+> Car Rental Frontend Application that lets the user rent cars on a given date. Interacts with RoR Backend application.
 
 ## Preview
 ![Preview of Car Rental App](./preview.png)
-
-## Live demo
-
-- Link to BackEnd API Server [Here](https://final-capstone-project-lfmn.herokuapp.com/api/cars)
-- Link to the Website [Try it Here](https://car-rental-frontend-lfmn.netlify.app/)
 
 ## Live Demos
 
@@ -28,7 +23,7 @@
 
 - To get a local copy of the repository please run the following commands on your terminal:
    ```
-   git clone https://github.com/ramiaquista/car-rental-front-end
+   git clone https://github.com/lfmnovaes/car-rental-front-end
    ```
 - Go to the cloned directory with `cd car-rental-front-end`
 - Run `npm install` to install all the necessary packages
